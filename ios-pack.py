@@ -38,7 +38,7 @@ class AutoArchive(object):
 		pass
 
 	def homePath(self):
-		home_path = "/Users/gelianming/Desktop/%s%s" % (product_name,time.strftime('%Y-%m-%d',time.localtime(time.time())))
+		home_path = "/%s%s" % (os.getcwd(),product_name,time.strftime('%Y-%m-%d',time.localtime(time.time())))
 		if os.path.exists(home_path) == False:
 			mkdir_command = "mkdir %s" % home_path
 			subprocess.call(mkdir_command,shell=True)
@@ -179,7 +179,7 @@ class AutoArchive(object):
 		print("\n====================开始sendemail操作==========================")
 		start = time.time()
 		message = MIMEText(content,'plain','utf-8')
-		message['From'] = self._format_addr(u'各连明 <%s>' % from_address)
+		message['From'] = self._format_addr(u'那个谁谁谁 <%s>' % from_address)
 		message['To'] = self._format_addr(u'测试 <%s>' % to_address)
 		message['Subject'] = Header(content,'utf-8').encode()
 

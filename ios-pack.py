@@ -38,7 +38,7 @@ class AutoArchive(object):
 		pass
 
 	def homePath(self):
-		home_path = "/%s%s" % (os.getcwd(),product_name,time.strftime('%Y-%m-%d',time.localtime(time.time())))
+		home_path = "%s/%s%s" % (os.getcwd(),product_name,time.strftime('%Y-%m-%d',time.localtime(time.time())))
 		if os.path.exists(home_path) == False:
 			mkdir_command = "mkdir %s" % home_path
 			subprocess.call(mkdir_command,shell=True)
